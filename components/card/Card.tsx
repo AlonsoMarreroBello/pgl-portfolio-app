@@ -1,32 +1,18 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Text, TextStyle } from "react-native";
 
 type CardProps = {
   textString: string;
+  style: TextStyle;
 };
 
-const Card = ({ textString }: CardProps) => {
+const Card = ({ textString, style }: CardProps) => {
   console.log(textString);
   return (
     <>
-      <Text style={styles.thingsILikeALot}>{textString}</Text>
+      <Text style={style}>{textString}</Text>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  thingsILikeALot: {
-    borderColor: "black",
-    borderWidth: 1,
-    borderStyle: "dashed",
-    padding: 20,
-    color: "darkred",
-    textAlign: "center",
-    fontWeight: "bold",
-    fontStyle: "italic",
-    fontSize: 16,
-    backgroundColor: "silver",
-  },
-});
 
 export default Card;
