@@ -11,28 +11,20 @@ import {
 import QRCode from "react-native-qrcode-svg";
 import { thingsILikeALot } from "./data/thingsILikeALot/thingsILikeALot";
 import Card from "./components/card/Card";
+import styles from "./styles/styles";
 
 export default function App() {
   const [displayMyQR, setDisplayMyQR] = useState(true);
   return (
     <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <Text style={styles.firsttoprowContainer}>My Portfolio App</Text>
-        <View style={styles.rowTopSecondContainer}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerTitle}>My Portfolio App</Text>
+        <View style={styles.navigationContainer}>
           <Pressable
-            style={styles.buttonruta}
+            style={styles.navigationPressable}
             onPress={() => setDisplayMyQR(true)}
           >
-            <Text
-              style={{
-                ...{
-                  color: "white",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                },
-                ...styles.shadoxboxing,
-              }}
-            >
+            <Text style={styles.navigationPressableText && styles.shadoxBox}>
               Mi info
             </Text>
           </Pressable>
@@ -45,29 +37,15 @@ export default function App() {
         </View>
       </View>
       {displayMyQR ? (
-        <View style={styles.bodystails}>
+        <View style={styles.bodyContainer}>
           <View>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={styles.userDataContainer}>
               <Image
-                style={styles.avatar}
+                style={styles.userAvatar}
                 source={require("./assets/SofyanAmrabat.jpg")}
               ></Image>
-              <View
-                style={{
-                  margin: 10,
-                  backgroundColor: "lightgray",
-                  padding: 10,
-                  borderRadius: 10,
-                  width: "70%",
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    fontWeight: "700",
-                    fontSize: 20,
-                  }}
-                >
+              <View style={styles.descriptionBox}>
+                <Text style={styles.descriptionTitle}>
                   Descripción sobre mí!
                 </Text>
                 <Text>
@@ -76,27 +54,23 @@ export default function App() {
                 </Text>
               </View>
             </View>
-            <Text
-              style={{
-                color: "beriblak",
-                fontWeight: "900",
-                textTransform: "capitalize",
-                fontSize: 20,
-                textAlign: "center",
-              }}
-            >
+            <Text style={styles.favoriteThingsTitle}>
               cosas que me gustan mucho:
             </Text>
             <ScrollView style={{ padding: 10 }}>
               {thingsILikeALot.map((thing, index) => (
-                <Card key={index} textString={thing} />
+                <Card
+                  key={index}
+                  textString={thing}
+                  style={styles.favoriteThingsText}
+                />
               ))}
             </ScrollView>
           </View>
         </View>
       ) : (
-        <View style={styles.bodystails}>
-          <View style={styles.CentrarcodigoQR}>
+        <View style={styles.bodyContainer}>
+          <View style={styles.qrCodeContainer}>
             <QRCode value="https://github.com/adhernea" />
           </View>
         </View>
@@ -104,76 +78,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  topContainer: {
-    height: "15%",
-    paddingTop: 50,
-    width: "100%",
-  },
-  firsttoprowContainer: {
-    backgroundColor: "gray",
-    textAlign: "center",
-    fontWeight: "bold",
-    textAlignVertical: "center",
-    fontSize: 30,
-  },
-  rowTopSecondContainer: {
-    flexDirection: "row",
-    backgroundColor: "darkgray",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonruta: {
-    width: "50%",
-  },
-  bodystails: {
-    width: "100%",
-    borderWidth: 2,
-    borderColor: "black",
-    alignItems: "center",
-    justifyContent: "space-between",
-    height: "85%",
-  },
-  avatar: {
-    height: 90,
-    width: 90,
-    borderRadius: 100,
-  },
-  cosasQmeGustanMuxoEstails: {
-    borderColor: "black",
-    borderWidth: 1,
-    borderStyle: "dashed",
-    padding: 20,
-    color: "darkred",
-    textAlign: "center",
-    fontWeight: "bold",
-    fontStyle: "italic",
-    fontSize: 16,
-    backgroundColor: "silver",
-  },
-  CentrarcodigoQR: {
-    justifyContent: "center",
-    borderWidth: 1,
-    width: "100%",
-    height: "100%",
-    alignItems: "center",
-  },
-  shadoxboxing: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.43,
-    shadowRadius: 9.51,
-
-    elevation: 15,
-  },
-});
