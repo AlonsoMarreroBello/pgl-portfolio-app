@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 type CardProps = {
   textString: string;
@@ -9,27 +9,13 @@ const Card = ({ textString }: CardProps) => {
   console.log(textString);
   return (
     <>
-      <Text>{textString}</Text>
+      <Text style={styles.thingsILikeALot}>{textString}</Text>
     </>
   );
 };
 
-/* const Card = ({ title, body, imgSource }: CardProps) => {
-  return (
-    <View>
-      <View style={styles.cardContainer}>
-        <View style={styles.cardHeader}>
-          <Image style={styles.img} source={imgSource} />
-          <Text style={styles.cardTitle}>{title}</Text>
-        </View>
-        <Text style={styles.cardBody}>{body}</Text>
-      </View>
-    </View>
-  );
-};
- */
-const style = {
-  text: {
+const styles = StyleSheet.create({
+  thingsILikeALot: {
     borderColor: "black",
     borderWidth: 1,
     borderStyle: "dashed",
@@ -41,6 +27,6 @@ const style = {
     fontSize: 16,
     backgroundColor: "silver",
   },
-};
+});
 
 export default Card;
