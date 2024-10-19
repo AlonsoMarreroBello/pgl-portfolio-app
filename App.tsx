@@ -21,12 +21,12 @@ export default function App() {
       />
       {displayMyQR ? (
         <UserProfile
-          avatar={require("./assets/SofyanAmrabat.jpg")}
-          description="Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar prácticas para mis queridos alumnos"
+          avatar={require("./assets/avatar.png")}
+          description="Soy un estudiante de segundo de DAM (desarollo de aplicaciones multiplataforma) que odia a uno de sus profesores porque a veces le gusta enredar las practicas, porque el pelo no puede."
           favouriteThings={thingsILikeALot}
         />
       ) : (
-        <QRCodeDisplay qrCodeValue="https://github.com/adhernea" />
+        <QRCodeDisplay qrCodeValue="https://github.com/AlonsoMarreroBello" />
       )}
     </View>
   );
