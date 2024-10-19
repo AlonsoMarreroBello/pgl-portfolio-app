@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import styles from "../../styles/styles";
 import Card from "../card/Card";
+import { RandomQuote } from "../randomQuote/RandomQuote";
 
 type UserProfileProps = {
   avatar: ImageSourcePropType;
@@ -32,6 +33,7 @@ const UserProfile = ({
             <Text>{description}</Text>
           </View>
         </View>
+        <RandomQuote />
         <Text style={InternalStyles.favoriteThingsTitle}>
           cosas que me gustan mucho:
         </Text>
