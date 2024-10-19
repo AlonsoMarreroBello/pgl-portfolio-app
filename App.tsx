@@ -22,8 +22,7 @@ export default function App() {
       {displayMyQR ? (
         <UserProfile
           avatar={require("./assets/SofyanAmrabat.jpg")}
-          description="Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar
-              prácticas para mis queridos alumnos"
+          description="Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar prácticas para mis queridos alumnos"
           favouriteThings={thingsILikeALot}
         />
       ) : (
