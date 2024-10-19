@@ -29,11 +29,7 @@ const UserProfile = ({
             <Text style={InternalStyles.descriptionTitle}>
               Descripción sobre mí!
             </Text>
-            <Text>
-              {/* Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar
-              prácticas para mis queridos alumnos */}
-              {description}
-            </Text>
+            <Text>{description}</Text>
           </View>
         </View>
         <Text style={InternalStyles.favoriteThingsTitle}>
