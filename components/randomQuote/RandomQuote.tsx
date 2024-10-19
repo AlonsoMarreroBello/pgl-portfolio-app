@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 
-export const RandomQuote = () => {
+type randomQuoteProps = {
+  isDarkTheme: boolean;
+};
+
+const RandomQuote = ({ isDarkTheme }: randomQuoteProps) => {
   const [quote, setQuote] = useState("");
   const [loading, setLoading] = useState(true);
+  const internalStyles = getInternalStyles(isDarkTheme);
 
   useEffect(() => {
     fetch("https://quote-generator-api-six.vercel.app/api/quotes/random")
@@ -20,9 +25,33 @@ export const RandomQuote = () => {
   }, []);
 
   return (
-    <View style={{ alignItems: "center" }}>
-      <Text>Frase del dia</Text>
-      {loading ? <ActivityIndicator size="small" /> : <Text>{quote}</Text>}
+    <View style={internalStyles.container}>
+      <Text style={internalStyles.quoteTitle}>Frase del dia</Text>
+      {loading ? (
+        <ActivityIndicator size="small" />
+      ) : (
+        <Text style={internalStyles.quoteText}>{quote}</Text>
+      )}
     </View>
   );
 };
+
+const getInternalStyles = (isDarkTheme: boolean) =>
+  StyleSheet.create({
+    container: {
+      alignItems: "center",
+      marginHorizontal: 5,
+    },
+    quoteTitle: {
+      textAlign: "center",
+      fontWeight: "700",
+      fontSize: 20,
+      color: isDarkTheme ? "white" : "black",
+    },
+    quoteText: {
+      color: isDarkTheme ? "white" : "black",
+      paddingBottom: 10,
+    },
+  });
+
+export default RandomQuote;

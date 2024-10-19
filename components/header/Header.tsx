@@ -1,33 +1,41 @@
-import { View, Pressable, Button, Text } from "react-native";
-import styles from "../../styles/styles";
+import { View, Pressable, Button, Text, StyleSheet } from "react-native";
+import getStyles from "../../styles/styles";
 
 type HeaderProps = {
   title: string;
   firstButtonTitle: string;
   secondButtonTitle: string;
-  handlePress: Function;
+  handleDisplayQR: Function;
+  handleHideQR: Function;
+  isDarkTheme: boolean;
 };
 
 const Header = ({
   title,
   firstButtonTitle,
   secondButtonTitle,
-  handlePress,
+  handleDisplayQR,
+  handleHideQR,
+  isDarkTheme,
 }: HeaderProps) => {
+  const styles = getStyles(isDarkTheme);
+  const insternalStyles = getInternalStyles(isDarkTheme);
   return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle}>{title}</Text>
-      <View style={styles.navigationContainer}>
+    <View style={insternalStyles.headerContainer}>
+      <Text style={insternalStyles.headerTitle}>{title}</Text>
+      <View style={insternalStyles.navigationContainer}>
         <Pressable
-          style={styles.navigationPressable}
-          onPress={() => handlePress()}
+          style={insternalStyles.navigationPressable}
+          onPress={() => handleDisplayQR()}
         >
-          <Text style={styles.navigationPressableText && styles.shadoxBox}>
+          <Text
+            style={insternalStyles.navigationPressableText && styles.shadoxBox}
+          >
             {firstButtonTitle}
           </Text>
         </Pressable>
         <Button
-          onPress={() => handlePress()}
+          onPress={() => handleHideQR()}
           title={secondButtonTitle}
           color="light-gray"
           accessibilityLabel="A button for displaying QR code"
@@ -36,5 +44,33 @@ const Header = ({
     </View>
   );
 };
+
+const getInternalStyles = (isDarkTheme: boolean) =>
+  StyleSheet.create({
+    headerContainer: {
+      width: "100%",
+    },
+    headerTitle: {
+      backgroundColor: "gray",
+      textAlign: "center",
+      fontWeight: "bold",
+      textAlignVertical: "center",
+      fontSize: 30,
+    },
+    navigationContainer: {
+      flexDirection: "row",
+      backgroundColor: "darkgray",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    navigationPressable: {
+      width: "50%",
+    },
+    navigationPressableText: {
+      color: "white",
+      fontWeight: "bold",
+      textTransform: "uppercase",
+    },
+  });
 
 export default Header;

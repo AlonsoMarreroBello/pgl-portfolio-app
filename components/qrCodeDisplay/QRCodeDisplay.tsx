@@ -1,12 +1,14 @@
 import { View } from "react-native";
 import QRCode from "react-native-qrcode-svg";
-import styles from "../../styles/styles";
+import getStyles from "../../styles/styles";
 
 type QRCodeDisplayProps = {
   qrCodeValue: string;
+  isDarkTheme: boolean;
 };
 
-const QRCodeDisplay = ({ qrCodeValue }: QRCodeDisplayProps) => {
+const QRCodeDisplay = ({ qrCodeValue, isDarkTheme }: QRCodeDisplayProps) => {
+  const styles = getStyles(isDarkTheme);
   return (
     <View style={styles.bodyContainer}>
       <View style={styles.qrCodeContainer}>
