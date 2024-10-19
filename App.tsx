@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Pressable, Text, View } from "react-native";
+import { View } from "react-native";
 import { thingsILikeALot } from "./data/thingsILikeALot/thingsILikeALot";
 import styles from "./styles/styles";
 import UserProfile from "./components/userProfile/UserProfile";
