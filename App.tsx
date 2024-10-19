@@ -4,30 +4,21 @@ import { thingsILikeALot } from "./data/thingsILikeALot/thingsILikeALot";
 import styles from "./styles/styles";
 import UserProfile from "./components/userProfile/UserProfile";
 import QRCodeDisplay from "./components/qrCodeDisplay/QRCodeDisplay";
+import Header from "./components/header/Header";
 
 export default function App() {
   const [displayMyQR, setDisplayMyQR] = useState(true);
+  const handleDisplayQR = (): void => {
+    setDisplayMyQR(!displayMyQR);
+  };
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerTitle}>My Portfolio App</Text>
-        <View style={styles.navigationContainer}>
-          <Pressable
-            style={styles.navigationPressable}
-            onPress={() => setDisplayMyQR(true)}
-          >
-            <Text style={styles.navigationPressableText && styles.shadoxBox}>
-              Mi info
-            </Text>
-          </Pressable>
-          <Button
-            onPress={() => setDisplayMyQR(false)}
-            title="Mi Repo"
-            color="light-gray"
-            accessibilityLabel="Un botón pal QR"
-          />
-        </View>
-      </View>
+      <Header
+        title="My Portfolio App"
+        firstButtonTitle="My info"
+        secondButtonTitle="My repo"
+        handlePress={handleDisplayQR}
+      />
       {displayMyQR ? (
         <UserProfile
           avatar={require("./assets/SofyanAmrabat.jpg")}
