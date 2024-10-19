@@ -1,14 +1,5 @@
 import { useState } from "react";
-import {
-  Button,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from "react-native";
-import QRCode from "react-native-qrcode-svg";
+import { Button, Pressable, Text, View } from "react-native";
 import { thingsILikeALot } from "./data/thingsILikeALot/thingsILikeALot";
 import styles from "./styles/styles";
 import UserProfile from "./components/userProfile/UserProfile";
