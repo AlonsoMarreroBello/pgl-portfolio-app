@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import QRCode from "react-native-qrcode-svg";
 import { thingsILikeALot } from "./data/thingsILikeALot/thingsILikeALot";
-import Card from "./components/card/Card";
 import styles from "./styles/styles";
+import UserProfile from "./components/userProfile/UserProfile";
 
 export default function App() {
   const [displayMyQR, setDisplayMyQR] = useState(true);
@@ -37,37 +37,12 @@ export default function App() {
         </View>
       </View>
       {displayMyQR ? (
-        <View style={styles.bodyContainer}>
-          <View>
-            <View style={styles.userDataContainer}>
-              <Image
-                style={styles.userAvatar}
-                source={require("./assets/SofyanAmrabat.jpg")}
-              ></Image>
-              <View style={styles.descriptionBox}>
-                <Text style={styles.descriptionTitle}>
-                  Descripción sobre mí!
-                </Text>
-                <Text>
-                  Soy profe y me gusta mi trabajo aunque a veces me de por
-                  enrevesar prácticas para mis queridos alumnos
-                </Text>
-              </View>
-            </View>
-            <Text style={styles.favoriteThingsTitle}>
-              cosas que me gustan mucho:
-            </Text>
-            <ScrollView style={{ padding: 10 }}>
-              {thingsILikeALot.map((thing, index) => (
-                <Card
-                  key={index}
-                  textString={thing}
-                  style={styles.favoriteThingsText}
-                />
-              ))}
-            </ScrollView>
-          </View>
-        </View>
+        <UserProfile
+          avatar={require("./assets/SofyanAmrabat.jpg")}
+          description="Soy profe y me gusta mi trabajo aunque a veces me de por enrevesar
+              prácticas para mis queridos alumnos"
+          favouriteThings={thingsILikeALot}
+        />
       ) : (
         <View style={styles.bodyContainer}>
           <View style={styles.qrCodeContainer}>
