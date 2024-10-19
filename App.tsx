@@ -12,6 +12,7 @@ import QRCode from "react-native-qrcode-svg";
 import { thingsILikeALot } from "./data/thingsILikeALot/thingsILikeALot";
 import styles from "./styles/styles";
 import UserProfile from "./components/userProfile/UserProfile";
+import QRCodeDisplay from "./components/qrCodeDisplay/QRCodeDisplay";
 
 export default function App() {
   const [displayMyQR, setDisplayMyQR] = useState(true);
@@ -44,11 +45,7 @@ export default function App() {
           favouriteThings={thingsILikeALot}
         />
       ) : (
-        <View style={styles.bodyContainer}>
-          <View style={styles.qrCodeContainer}>
-            <QRCode value="https://github.com/adhernea" />
-          </View>
-        </View>
+        <QRCodeDisplay qrCodeValue="https://github.com/adhernea" />
       )}
     </View>
   );
