@@ -7,6 +7,7 @@ const lightTheme = {
   buttonColor: "#007BFF",
   borderColor: "#CCCCCC",
   shadowColor: "#E0E0E0",
+  transparent: "rgba(0, 0, 0, 0.6)",
 };
 
 const darkTheme = {
@@ -16,13 +17,16 @@ const darkTheme = {
   buttonColor: "#BB86FC",
   borderColor: "#424242",
   shadowColor: "#1F1F1F",
+  transparent: "rgba(255, 255, 255, 0.6)",
 };
 
 const getStyles = (isDarkTheme: boolean) => {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: isDarkTheme ? "rgba(0,0,0,0.8)" : "#fff",
+      backgroundColor: isDarkTheme
+        ? darkTheme.background
+        : lightTheme.background,
       maxHeight: "90%",
     },
     bodyContainer: {
@@ -53,8 +57,8 @@ const getStyles = (isDarkTheme: boolean) => {
       bottom: -60,
       right: 20,
       backgroundColor: isDarkTheme
-        ? "rgba(255, 255, 255, 0.6)"
-        : "rgba(0, 0, 0, 0.6)",
+        ? darkTheme.transparent
+        : lightTheme.transparent,
       borderRadius: 30,
       padding: 15,
     },
