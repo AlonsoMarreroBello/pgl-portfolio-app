@@ -27,13 +27,12 @@ const getStyles = (isDarkTheme: boolean) => {
       backgroundColor: isDarkTheme
         ? darkTheme.background
         : lightTheme.background,
-      maxHeight: "90%",
     },
     bodyContainer: {
       width: "100%",
       alignItems: "center",
       justifyContent: "space-between",
-      height: "100%",
+      height: "90%",
     },
     qrCodeContainer: {
       justifyContent: "center",
@@ -54,7 +53,7 @@ const getStyles = (isDarkTheme: boolean) => {
     },
     floatingButton: {
       position: "absolute",
-      bottom: -60,
+      bottom: 20,
       right: 20,
       backgroundColor: isDarkTheme
         ? darkTheme.transparent
