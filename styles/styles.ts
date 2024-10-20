@@ -50,7 +50,7 @@ const getStyles = (isDarkTheme: boolean) => {
     },
     floatingButton: {
       position: "absolute",
-      bottom: 20,
+      bottom: -60,
       right: 20,
       backgroundColor: isDarkTheme
         ? "rgba(255, 255, 255, 0.6)"
