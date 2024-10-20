@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 
-type randomQuoteProps = {
+type RandomQuoteProps = {
   isDarkTheme: boolean;
 };
 
-const RandomQuote = ({ isDarkTheme }: randomQuoteProps) => {
+const RandomQuote = ({ isDarkTheme }: RandomQuoteProps) => {
   const [quote, setQuote] = useState("");
   const [loading, setLoading] = useState(true);
   const internalStyles = getInternalStyles(isDarkTheme);
