@@ -23,6 +23,7 @@ const getStyles = (isDarkTheme: boolean) => {
     container: {
       flex: 1,
       backgroundColor: isDarkTheme ? "rgba(0,0,0,0.8)" : "#fff",
+      maxHeight: "90%",
     },
     bodyContainer: {
       width: "100%",
